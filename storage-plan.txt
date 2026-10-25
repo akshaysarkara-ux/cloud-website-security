@@ -1,0 +1,21 @@
+CLOUD STORAGE PLAN
+Project: Cloud-Hosted Website and Storage Security
+
+Purpose:
+To understand how website files can be stored in AWS S3.
+
+File inventory:
+1. index.html
+   Purpose: Contains the website structure and content.
+   Sensitivity: Low; contains no personal information.
+
+Storage plan:
+The index.html file could be stored as an object
+inside an Amazon S3 bucket.
+
+Security requirement:
+Only authorised users should be allowed to modify
+the stored website files.
+
+Current status:
+Website created locally. Cloud deployment not yet done.

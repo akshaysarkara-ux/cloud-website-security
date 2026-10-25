@@ -1,0 +1,17 @@
+CLOUD SECURITY PLAN
+Project: Cloud-Hosted Website and Storage Security
+
+1. Keep cloud storage private by default.
+2. Allow only authorised users to modify files.
+3. Avoid storing passwords or personal information
+   in the website files.
+4. Review access permissions before deployment.
+5. Use a secure delivery method for website visitors.
+
+Proposed design:
+A private Amazon S3 bucket with CloudFront access
+configured through Origin Access Control (OAC).
+
+Current status:
+Security design is planned for learning purposes.
+AWS infrastructure has not yet been deployed.

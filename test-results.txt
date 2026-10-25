@@ -1,0 +1,29 @@
+PROJECT TEST RESULTS
+
+Project: Cloud-Hosted Website and Storage Security
+
+Test 1: Local website access
+Action: Opened index.html in a web browser.
+Expected result: The website displays its content.
+Result: Passed, based on the local browser check.
+
+Test 2: Website content
+Action: Checked the Cloud Storage, Cloud Security, and AWS Infrastructure sections.
+Expected result: The sections are visible and readable.
+Result: Passed, based on the visual check.
+
+Test 3: Project documentation
+Action: Checked the storage plan, security plan, and security checklist files.
+Expected result: The documentation files are saved in the project folder.
+Result: Files confirmed present.
+
+Test 4: Architecture diagram
+Action: Created and exported the proposed cloud architecture diagram.
+Expected result: The editable diagram and PNG export are saved.
+Result: Files confirmed present.
+
+Limitations:
+The website is running locally. No AWS infrastructure has been deployed, and no real cloud access permissions or security controls have been tested.
+
+Conclusion:
+The project demonstrates introductory knowledge of cloud architecture planning, storage concepts, and security documentation. Further work would be required to deploy and test the design in a real cloud environment.

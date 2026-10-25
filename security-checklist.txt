@@ -1,0 +1,19 @@
+CLOUD SECURITY CHECKLIST
+
+Project: Cloud-Hosted Website and Storage Security
+
+Purpose:
+To identify security checks required before hosting a website using cloud storage.
+
+Checklist:
+
+1. Public access to the storage bucket should be blocked by default.
+2. Only authorised users should be allowed to modify stored files.
+3. Website files should not contain passwords, secret keys, or personal information.
+4. HTTPS should be used to protect data in transit between visitors and the website.
+5. Access permissions should be reviewed before deployment.
+6. Cloud access credentials should never be shared or uploaded to a public repository.
+7. Website files should be checked before they are published.
+
+Current project status:
+These controls are documented as a learning exercise. No AWS resources have been deployed or security settings configured in a real AWS account.
