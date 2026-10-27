@@ -55,3 +55,80 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "website" {
     }
   }
 }
+# CloudFront Origin Access Control
+# Allows CloudFront to access the private S3 bucket securely.
+resource "aws_cloudfront_origin_access_control" "website" {
+  name                              = "${var.project_name}-oac"
+  description                       = "Secure access to the CloudGuard S3 origin"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
+
+# CloudFront distribution for HTTPS website delivery.
+resource "aws_cloudfront_distribution" "website" {
+  enabled             = true
+  default_root_object = "index.html"
+  comment             = "CloudGuard secure website distribution"
+
+  origin {
+    domain_name              = aws_s3_bucket.website.bucket_regional_domain_name
+    origin_id                = "cloudguard-s3-origin"
+    origin_access_control_id = aws_cloudfront_origin_access_control.website.id
+  }
+
+  default_cache_behavior {
+    target_origin_id       = "cloudguard-s3-origin"
+    viewer_protocol_policy = "redirect-to-https"
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    forwarded_values {
+      query_string = false
+
+      cookies {
+        forward = "none"
+      }
+    }
+  }
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
+  tags = {
+    Project = "CloudGuard"
+  }
+}
+
+# Permit reads only through the intended CloudFront distribution.
+resource "aws_s3_bucket_policy" "website" {
+  bucket = aws_s3_bucket.website.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid       = "AllowCloudFrontReadOnly"
+        Effect    = "Allow"
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        }
+        Action   = "s3:GetObject"
+        Resource = "${aws_s3_bucket.website.arn}/*"
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.website.arn
+          }
+        }
+      }
+    ]
+  })
+}
