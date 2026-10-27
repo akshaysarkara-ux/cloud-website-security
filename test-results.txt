@@ -1,29 +1,57 @@
 PROJECT TEST RESULTS
 
-Project: Cloud-Hosted Website and Storage Security
+Project: CloudGuard — Cloud Website Security
+Testing scope: Local website, project documentation, and Terraform configuration
 
-Test 1: Local website access
-Action: Opened index.html in a web browser.
-Expected result: The website displays its content.
-Result: Passed, based on the local browser check.
+Test 1: Local Website Access
 
-Test 2: Website content
-Action: Checked the Cloud Storage, Cloud Security, and AWS Infrastructure sections.
-Expected result: The sections are visible and readable.
-Result: Passed, based on the visual check.
+- Action: Opened "index.html" in a web browser.
+- Expected: The website displays its content.
+- Result: Passed — based on the local browser check.
 
-Test 3: Project documentation
-Action: Checked the storage plan, security plan, and security checklist files.
-Expected result: The documentation files are saved in the project folder.
-Result: Files confirmed present.
+Test 2: Website Content
 
-Test 4: Architecture diagram
-Action: Created and exported the proposed cloud architecture diagram.
-Expected result: The editable diagram and PNG export are saved.
-Result: Files confirmed present.
+- Action: Checked the Cloud Storage, Cloud Security, and AWS Infrastructure sections.
+- Expected: The sections are visible and readable.
+- Result: Passed — based on the visual check.
 
-Limitations:
-The website is running locally. No AWS infrastructure has been deployed, and no real cloud access permissions or security controls have been tested.
+Test 3: Project Documentation
 
-Conclusion:
-The project demonstrates introductory knowledge of cloud architecture planning, storage concepts, and security documentation. Further work would be required to deploy and test the design in a real cloud environment.
+- Action: Checked the storage plan, security plan, and security checklist.
+- Expected: Documentation files are present in the project.
+- Result: Files confirmed present.
+
+Test 4: Architecture Diagram
+
+- Action: Created and exported the proposed cloud architecture diagram.
+- Expected: The architecture diagram and PNG export are available in the repository.
+- Result: Files confirmed present.
+
+Test 5: Terraform Initialization
+
+- Action: Ran "terraform init" in the Terraform project directory.
+- Expected: Terraform initializes and downloads the required provider.
+- Result: Passed — initialization completed successfully.
+
+Test 6: Terraform Configuration Validation
+
+- Action: Ran "terraform validate".
+- Expected: Terraform reports that the configuration is valid.
+- Result: Passed — Terraform reported that the configuration is valid.
+
+Test 7: Terraform Formatting
+
+- Action: Ran "terraform fmt" followed by "terraform fmt -check".
+- Expected: Terraform files are formatted consistently.
+- Result: Passed — the formatting check completed without reporting changes.
+
+Limitations
+
+- The website is currently hosted on GitHub Pages; the local browser check confirms the local "index.html" content only.
+- No AWS infrastructure has been deployed.
+- No live AWS permissions, S3 bucket access, CloudFront delivery, or security controls have been tested.
+- Terraform validation checks configuration syntax and internal consistency; it does not prove that deployment will succeed.
+
+Conclusion
+
+CloudGuard demonstrates introductory practical skills in cloud architecture planning, infrastructure as code using Terraform, website security concepts, and technical documentation. The Terraform configuration was initialized, validated, and formatted locally. The proposed AWS architecture remains undeployed, and live cloud testing is future work.
