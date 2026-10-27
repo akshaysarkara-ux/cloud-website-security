@@ -19,6 +19,9 @@ Objectives
 
 Proposed Architecture
 
+![CloudGuard Secure Cloud Architecture](enhancedcloudsecurityarchitecture.png)
+
+*Proposed AWS architecture: private S3 storage, CloudFront, OAC, and security controls.*
 The proposed AWS architecture consists of:
 
 - Amazon S3: Stores static website assets privately.
