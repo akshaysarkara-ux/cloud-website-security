@@ -4,7 +4,7 @@
 - [ ] AWS infrastructure deployed and verified
 - [x] Terraform configuration committed to GitHub
 - [x] Proposed architecture documented
-- [ ] Terraform configuration validated
+- [x] Terraform configuration validated
 - [ ] Security controls tested
 
 > Note: AWS infrastructure has not been deployed. Items are marked complete only when the corresponding work has actually been performed.
@@ -55,7 +55,7 @@ Record test results here only after performing the relevant checks.
 | Check | Result | Evidence |
 |---|---|---|
 | Terraform formatting | Not tested | Pending |
-| Terraform validation | Not tested | Pending |
+| Terraform validation | Passed | `terraform validate` returned success locally |
 | S3 public access | Not tested | No AWS deployment |
 | HTTPS delivery | Not tested | No AWS deployment |
 
